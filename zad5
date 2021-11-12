@@ -1,0 +1,9 @@
+#!/bin/bash
+
+for filename in ~/lab5/*
+do
+        if [[ -z `file -b 1 $filename | grep JPEG` ]]
+        then
+                rm $filename
+        fi
+done

@@ -1,0 +1,43 @@
+UNIX ISI Lab 5
+
+Bash
+
+trap, sleep
+alias, basename
+
+1. Dodaj alias lst, który będzie pokazywał ostatnio zmodyfikowane pliki w bieżącym katalogu (podpowiedź: find), zrób zmianę permanentną (umieść odpowiednie polecenia w odpowiednim pliku konfiguracyjnym bash).
+
+2. Zmień swój znak zachęty bash, tak aby był 2-linijkowy, w 1-szej linii pokazywał: aktualny katalog oraz liczbę zadań w tle, w drugiej linii znak $.
+Zaprogramuj w/w zmianę tak, aby było to domyślne ustawienie po zalogowaniu.
+
+3. Skopiuj wszystkie pliki z katalogu ~wojnicki/lab/zdjecia do katalogu ~/lab5.
+Napisz polecenie, które zmieni nazwy plików w katalogu ~/lab5 z  kończących się na .JPG  na kończące się na .jpg.
+Podpowiedź: skorzystaj z pętli for oraz basename.
+
+4. Zapisz polecenie z poprzedniego zadania w pliku ~/bin/JPG2jpg, tak aby można je było uruchomić jako polecenie JPG2jpg
+Zmodyfikuj je tak, aby:
+a. jeżeli polecenie nie ma argumentu, konwersja nazw plików realizowana była w bieżącym katalogu,
+b. jeżeli polecenie ma 1 argument, i jest to katalog, wykonaj konwersję w tym katalogu,
+c. jeżeli polecenie ma opcje -h, wyświetl informacje o tym co robi i jaka jest składnia. 
+
+Sprawdź, czy ~/bin jest w zmiennej środowiskowej PATH, jeżeli nie, to odpowiednio zmodyfikuj ~/.bashrc.
+
+5. Napisz polecenie, które usunie z katalogu ~/lab5 pliki, które nie są obrazkami JPG.
+Podpowiedź: użyj pętli for oraz file.
+
+6. Zaprogramuj przypominacz, narzędzie, które przypomni o określonej dacie określoną treść.
+W pliku ~/reminder umieść daty i treści, o których przypominacz ma przypomnieć, 1 linijka 1 przypomnienie, w formacie:
+
+YYYY-MM-DD tekst do przypomnienia
+
+a. Napisz skrypt, który wyświetli przypomnienia dla dzisiejszej daty.
+b. Zaprogramuj uruchomienie w/w skryptu po zalogowaniu się na serwerze, tak aby przypomnienia były wyświetlone w terminalu.
+
+7. Napisz skrypt, który:
+a. co 3 sekundy będzie dodawać do pliku ~/myps.log pojedynczą linię zawierającą informacje o aktualnej dacie i czasie, ilości uruchomionych procesów oraz obciążeniu systemu, w formacie:
+YYYY-MM-DD HH:MM:SS,n,l1,l5,l15
+gdzie n to ilość procesów, l1, l5, l15 to obciążenie systemu (load) odpowiednio w ciągu ostatnich 1, 5, 15 minut,
+a. zaprogramuj aby w/w nazwa pliku (~/myps.log) była przechowywana w zmiennej, aby w razie potrzeby można było ją łatwo zmienić,
+a. spraw, aby skrypt był odporny na SIGTERM oraz C-c (ctrl c) (podpowiedź: użyj trap),
+b. spraw, aby skrypt po otrzymaniu SIGUSR1 kasował aktualną zawartość pliku ~/myps.log i wyświetlał na wyjściu błędów: "File ~/myps.log cleaned" (podpowied: użyj trap).
+

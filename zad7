@@ -1,0 +1,12 @@
+#!/bin/bash
+
+LOG_PATH=~/myps.log
+
+trap '' SIGTERM
+trap "rm $LOG_PATH && echo 'File $LOG_PATH cleaned' >&2" SIGUSR1
+
+while [ true ]
+do
+    echo "`date +'%Y-%m-%d %H:%M'`,`ps -e --no-headers | wc -l`,`cut -d " " -f -3 /proc/loadavg | tr " " ,`" >> $LOG_PATH
+    sleep 3
+done

@@ -1,0 +1,5 @@
+#!/bin/bash
+for filename in ./*.JPG
+do
+    mv $filename `basename -s .JPG $filename`.jpg
+done
